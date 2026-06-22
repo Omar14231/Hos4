@@ -1,3 +1,22 @@
+// 1. استدعاء المكتبات (Express & Discord.js)
+const express = require('express');
+const { Client, GatewayIntentBits, ... } = require('discord.js');
+
+// 2. إعداد خادم الويب (للتجديد كل 5 دقائق)
+const app = express();
+app.get('/', (req, res) => res.send('Bot is active!'));
+app.listen(3000, () => console.log('Server is running on port 3000'));
+
+// 3. إعداد البوت (Client setup)
+const client = new Client({ intents: [...] });
+
+// 4. منطق البوت (الأوامر والأزرار)
+client.on('messageCreate', async message => {
+    // كود الأوامر هنا...
+});
+
+// 5. تسجيل الدخول
+client.login(process.env.DISCORD_TOKEN);
 const { Client, GatewayIntentBits, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, ModalBuilder, TextInputBuilder, TextInputStyle, ChannelType } = require('discord.js');
 
 const client = new Client({ 
